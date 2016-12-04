@@ -84,8 +84,9 @@ body {
                 width: 60%;
                 height: 90%;
                 background: rgb(31, 27, 27);
-                color: white;
+                color: rgba(97, 197, 216, 0.85);
                 border-radius: 40px;
+                margin-right: 30px;
                 p{
                     padding: 5px 10px 0 30px;
                     font-size: 20px;
@@ -160,5 +161,69 @@ body {
            background-color: grey;
        }
     } 
+}
+
+.container_second_site{
+    max-width: 1000px;
+    width: 100vw;
+    height: 100vh;
+    background-color: teal;
+    margin: 0 auto;
+    #title{
+        margin: 0 100px;
+        font-size: 30px;
+        padding: 30px 10px;
+        display: block;
+        color: white;
+    }
+    .flex{
+        display: flex;
+        flex-direction: row;     
+        li {
+            list-style-type: none;
+            height: 50px;
+            background-color: lightgrey;
+            border-radius: 25px;
+            margin: 20px 50px;
+            padding: 15px 30px;
+            cursor: pointer;
+            input{
+                width: 50px;
+                margin: 0 10px; 
+            }
+            .choice{
+                margin: 0 10px;
+            }
+        }
+    }
+    
+    .save_btn{
+        -webkit-box-shadow: 0 3px 3px #2f3539;
+        -moz-box-shadow: 0 3px 3px #2f3539;
+        box-shadow: 0 3px 3px #2f3539;
+        color: #ffffff;
+        font-size: 20px;
+        background: grey;
+        width: 25%;
+        margin: 5% 3%;
+        padding: 20px;
+        border: solid #4b5861 1px;
+        cursor: pointer;
+        &:hover {
+            background: lightgrey;
+            text-decoration: none;
+            color: black;
+        }
+        &:active {
+            background-color: lightgrey;
+            color: black;
+            -webkit-box-shadow: 0 3px 3px #2f3539;
+            -moz-box-shadow: 0 3px 3px #2f3539;
+            box-shadow: 0 3px 3px #2f3539;
+            transform: translateY(4px);
+            -webkit-transform: translateY(4px);
+            -moz-transform: translateY(4px);
+        }
+    }
 }
 

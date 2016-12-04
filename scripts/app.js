@@ -2,11 +2,11 @@ $(document).ready(function() {
     var elem = $("#MyDiv2");
     elem.on("click", function(){
         AnimateRotate(0, 60); //off to fast
-        AnimateRotate(60, 120); //fast to daily
-        AnimateRotate(120, 180); //daily to custom
-        AnimateRotate(180, 240); //custom to hand
-        AnimateRotate(240, 300); //hand to cotton
-        AnimateRotate(300, 360); //cotton to off
+//        AnimateRotate(60, 120); //fast to daily
+//        AnimateRotate(120, 180); //daily to custom
+//        AnimateRotate(180, 240); //custom to hand
+//        AnimateRotate(240, 300); //hand to cotton
+//        AnimateRotate(300, 360); //cotton to off
     });
     
 });
