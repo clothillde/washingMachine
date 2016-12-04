@@ -1,0 +1,28 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+@mixin flexBox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+@mixin transforms($pixels){
+    transform: translateY($pixels);
+    -webkit-transform: translateY($pixels);
+    -moz-transform: translateY($pixels);
+}
+
+
+@mixin boxShadow($p1, $p2, $p3, $color){
+    -webkit-box-shadow: $p1 $p2 $p3 $color;
+    -moz-box-shadow: $p1 $p2 $p3 $color;
+    box-shadow: $p1 $p2 $p3 $color;
+}
