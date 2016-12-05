@@ -1,8 +1,9 @@
 @import 'reset';
 @import 'mixins';
+@import 'variables';
 
 body {
-  background-color: grey;
+  background-color: $colorGrey;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -11,14 +12,40 @@ body {
 }
 
 
+
+.container_open{
+    width: $percentWidth;
+    height: $percentHeight;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background:rgba(255,255,255,0.7);
+    background-image: url("https://cdn.instructables.com/FA4/6WSR/I2UUUS3G/FA46WSRI2UUUS3G.LARGE.gif");
+//    background-image: url("https://i.imgur.com/u2QTb.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.close {
+  display: block;
+  height: 50px;
+  width: 100px;
+  font-size: 30px;
+}
+
+
+
+
 //first site style
 //main container
 .container {
     @include flexBox();
     max-width: 1000px;
-    width: 100vw;
-    height: 100vh;
-    background-color: lightgrey;
+    width: $fullWidth;
+    height: $fullHeight;
+    background-color: $colorLightGrey;
     margin: 0 auto;
     
     //left side - buttons, knob, screen
@@ -29,18 +56,22 @@ body {
         flex-wrap: wrap;
         .nav {
             height: 140px;
-            width: 100%;
-            border-bottom: 1px solid grey;
+            width: $percentWidth;
+            border-bottom: 1px solid $colorGrey;
         }
         .knob {
             height: 350px;
-            width: 100%;
+            width: $percentWidth;
             position: relative;
             .SomeDiv {
                 width:250px;
                 height:250px;
                 margin:50px auto;
-                background-color: grey;
+                background-color: $colorGrey;
+                background-image: url("https://s-media-cache-ak0.pinimg.com/564x/41/7d/9c/417d9cb633d84cf5104f80995acef065.jpg");
+                background-position-x: -20px;
+                background-size: cover;
+                background-repeat: no-repeat;
                 @include border-radius(50%);
                 position: relative;
                 span {
@@ -52,7 +83,6 @@ body {
             }
             p{
                 position: absolute;
-                
             }
             .off{
                 top: 10px;
@@ -81,7 +111,7 @@ body {
         }
         .screen {
             height: 150px;
-            width: 100%;
+            width: $percentWidth;
             @include flexBox();
             justify-content: space-between;
             .lcd{
@@ -103,11 +133,11 @@ body {
     .level {
         @include flexBox();
         max-width: 333.333px;
-        background-color: lightgrey;
+        background-color: $colorLightGrey;
         align-items: stretch;
         .icon {
-            width: 100%;
-            background-color: #3cbc8d;
+            width: $percentWidth;
+            background-color: $btnHover;
         }
     }
 }
@@ -117,39 +147,38 @@ body {
     .edit_btn,
     .save_btn{
         @include boxShadow(0, 3px, 3px, grey);
-        color: #ffffff;
+        color: $colorWhite;
         font-size: 20px;
-        background: #5d6870;
+        background: $btnGrey;
         width: 25%;
         margin: 5% 3%;
         padding: 20px;
-        border: solid #4b5861 1px;
+        border: 1px solid $borderGrey;
         cursor: pointer;
         &:first-child{
             margin-left: 6%;
         }
         &:hover {
-            background: #3cbc8d;
+            background: $btnHover;
             text-decoration: none;
-            color: black;
+            color: $colorBlack;
         }
         &:active {
-            background-color: #1cb06e;
-            color: black;
+            background-color: $btnActive;
+            color: $colorBlack;
             @include boxShadow(0, 3px, 3px, #666666);
             @include transforms(4px);
         }
     }
    .step_btn {
         @include border-radius(28px);
-        font-family: Arial;
-        color: #ffffff;
+        color: $colorWhite;
         font-size: 20px;
-        background: #5d6870;
+        background: $btnGrey;
         width: 90%; 
         padding: 20px;
         margin: 4% 5%;
-        border: solid #4b5861 1px;
+        border: 1px solid $borderGrey;
         float: right;
         &:first-child{
            margin-top: 10%;
@@ -160,25 +189,26 @@ body {
            @include border-radius(50%);
            height: 25px;
            width: 25px;
-           background-color: grey;
+           background-color: $colorGrey;
        }
     } 
+
 
 
 //second site style
 //main container
 .container_second_site{
     max-width: 1000px;
-    width: 100vw;
-    height: 100vh;
-    background-color: teal;
+    width: $fullWidth;
+    height: $fullHeight;
+    background-color: $colorTeal;
     margin: 0 auto;
     #title{
         margin: 0 100px;
         font-size: 30px;
         padding: 30px 10px;
         display: block;
-        color: white;
+        color: $colorWhite;
     }
     
     //place to choose your own mode
@@ -189,7 +219,7 @@ body {
         li {
             list-style-type: none;
             height: 50px;
-            background-color: lightgrey;
+            background-color: $colorLightGrey;
             @include border-radius(25px);
             margin: 20px 50px;
             padding: 15px 30px;
