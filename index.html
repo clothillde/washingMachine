@@ -15,9 +15,9 @@
 <div class="container">  
     <div class="left">
         <div class="nav"> 
-            <button class="init_btn"> START </button>
-            <button class="init_btn"> STOP </button>
-            <button class="init_btn"> DRYING </button>
+            <button class="init_btn" id="start"> START </button>
+            <button class="init_btn" id="stop"> STOP </button>
+            <button class="init_btn" id="drying"> DRYING </button>
         </div>
         <div class="knob">  
             <div id="MyDiv2" class="SomeDiv"> <span> | </span> </div>
@@ -31,21 +31,21 @@
         <div class="screen">
             <button class="edit_btn"> EDIT </button>
             <div class="lcd"> 
-                <p> WASHING <br> MODE: </p>
-                <p> TIME: </p>
+                <p> WASHING <br> MODE: <span id="name"> </span></p>
+                <p> TIME: <span id="duration"></span></p>
             </div>
         </div>        
     </div>
       
     <div class="level">
       <div class="icon"> 
-          <button class="step_btn"><span class="circle"></span> ON </button>
-          <button class="step_btn"><span class="circle"></span> WATER HEATING </button>
-          <button class="step_btn"><span class="circle"></span> MOTOR CONTROL </button>
-          <button class="step_btn"><span class="circle"></span> RINSING </button>
-          <button class="step_btn"><span class="circle"></span> CENTRIFUGATION </button>
-          <button class="step_btn"><span class="circle"></span> DRYING </button>
-          <button class="step_btn"><span class="circle"></span> DOOR OPEN </button> 
+          <button class="step_btn" id="on"><span class="circle"></span> ON </button>
+          <button class="step_btn" id="wheating"><span class="circle"></span> WATER HEATING </button>
+          <button class="step_btn" id="mcontrol"><span class="circle"></span> MOTOR CONTROL </button>
+          <button class="step_btn" id="rinsing"><span class="circle"></span> RINSING </button>
+          <button class="step_btn" id="centrif"><span class="circle"></span> CENTRIFUGATION </button>
+          <button class="step_btn" id="dry"><span class="circle"></span> DRYING </button>
+          <button class="step_btn" id="door"><span class="circle"></span> DOOR OPEN </button> 
       </div>
  
   </div>
@@ -70,6 +70,7 @@
                 <span class="choice"> CENTRIFUGATION  </span> 
                 <span class="choice"> DRYING </span> 
             </li>
+
             <li>
                 <label for="time">
                     <input type="text" name="time" placeholder="set time"> 
@@ -110,6 +111,7 @@
                 <span class="choice"> CENTRIFUGATION  </span> 
                 <span class="choice"> DRYING </span> 
             </li>
+
         </ul>
     </div>
     <button class="save_btn"> SAVE </button>

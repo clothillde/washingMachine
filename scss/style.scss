@@ -12,7 +12,7 @@ body {
 }
 
 
-
+//welcome sitepage with a gif to know what about is this page
 .container_open{
     width: $percentWidth;
     height: $percentHeight;
@@ -21,8 +21,7 @@ body {
     top: 0;
     z-index: 1;
     background:rgba(255,255,255,0.7);
-    background-image: url("https://cdn.instructables.com/FA4/6WSR/I2UUUS3G/FA46WSRI2UUUS3G.LARGE.gif");
-//    background-image: url("https://i.imgur.com/u2QTb.gif");
+    background-image: url("../images/snoopy.gif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -34,7 +33,6 @@ body {
   width: 100px;
   font-size: 30px;
 }
-
 
 
 
@@ -124,6 +122,9 @@ body {
                 p{
                     padding: 5px 10px 0 30px;
                     font-size: 20px;
+                    span{
+                        margin-left: 100px;
+                    }
                 }
             }
         }
