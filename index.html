@@ -22,7 +22,7 @@
             <button class="init_btn" id="drying" data-clicked="0"> DRYING </button>
         </div>
         <div class="knob">  
-            <div id="MyDiv2" class="SomeDiv"> <span> | </span> </div>
+            <div id="MyDiv2" class="SomeDiv"> <span id="pointer"> | </span> </div>
             <p class="off"> OFF </p>
             <p class="fast"> FAST </p>
             <p class="daily"> DAILY </p>
@@ -63,14 +63,13 @@
         
         <ul class="my_list">
             <li>
-                <label for="time">
-                    <input type="text" name="time" placeholder="set time"> 
-                </label>
-                <span class="choice"> WATER HEATING </span> 
-                <span class="choice"> MOTOR CONTROL </span> 
-                <span class="choice"> RINSING </span> 
-                <span class="choice"> CENTRIFUGATION  </span> 
-                <span class="choice"> DRYING </span> 
+                <input type="text" name="time" class="chosen_time" placeholder="milisec"> 
+                <span class="choice" data-name="wheating" data-clicked="0"> WATER HEATING </span> 
+                <span class="choice" data-name="mcontrol" data-clicked="0"> MOTOR CONTROL </span> 
+                <span class="choice" data-name="rinsing" data-clicked="0"> RINSING </span> 
+                <span class="choice" data-name="centrif" data-clicked="0"> CENTRIFUGATION  </span> 
+                <span class="choice" data-name="dry" data-clicked="0"> DRYING </span>
+                <button class="ok" id="ok1"> SET </button>
             </li>
 
 <!--
