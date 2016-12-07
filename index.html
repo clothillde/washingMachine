@@ -8,28 +8,30 @@
 </head>
 <body>
     
+<!--
 <div class="container_open">
 </div>
+-->
 
     
 <div class="container">  
     <div class="left">
         <div class="nav"> 
-            <button class="init_btn" id="start"> START </button>
-            <button class="init_btn" id="stop"> STOP </button>
-            <button class="init_btn" id="drying"> DRYING </button>
+            <button class="init_btn" id="start" data-clicked="0"> START </button>
+            <button class="init_btn" id="stop" data-clicked="0"> STOP </button>
+            <button class="init_btn" id="drying" data-clicked="0"> DRYING </button>
         </div>
         <div class="knob">  
             <div id="MyDiv2" class="SomeDiv"> <span> | </span> </div>
             <p class="off"> OFF </p>
-            <p class="fast" data-time="10"> FAST </p>
-            <p class="daily" data-time="20"> DAILY </p>
-            <p class="custom" data-time="0"> YOUR CUSTOM </p>
-            <p class="hand" data-time="14"> HAND </p>
-            <p class="cotton" data-time="22"> COTTON </p>
+            <p class="fast"> FAST </p>
+            <p class="daily"> DAILY </p>
+            <p class="custom"> YOUR CUSTOM </p>
+            <p class="hand"> HAND </p>
+            <p class="cotton"> COTTON </p>
         </div>
         <div class="screen">
-            <button class="edit_btn"> EDIT </button>
+            <button class="edit_btn" id="edit" data-clicked="0"> EDIT </button>
             <div class="lcd"> 
                 <p> WASHING <br> MODE: <span id="name"> </span></p>
                 <p> TIME: <span id="duration"></span></p>
@@ -71,6 +73,7 @@
                 <span class="choice"> DRYING </span> 
             </li>
 
+<!--
             <li>
                 <label for="time">
                     <input type="text" name="time" placeholder="set time"> 
@@ -111,10 +114,11 @@
                 <span class="choice"> CENTRIFUGATION  </span> 
                 <span class="choice"> DRYING </span> 
             </li>
+-->
 
         </ul>
     </div>
-    <button class="save_btn"> SAVE </button>
+    <button class="save_btn" id="save" data-clicked="0"> SAVE </button>
 </div>
 
 </body>
