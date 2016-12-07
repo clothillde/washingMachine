@@ -122,9 +122,12 @@ body {
                 p{
                     padding: 5px 10px 0 30px;
                     font-size: 20px;
-                    span{
+                    #name{
                         margin-left: 100px;
                     }
+                    #countdown{
+                        margin-left: 125px;
+                    } 
                 }
             }
         }

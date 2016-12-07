@@ -83,7 +83,7 @@ $(document).ready(function() {
         AnimateRotate(x, y);
         
             var name = document.getElementById("name");
-            var duration = document.getElementById("duration");
+            var duration = document.getElementById("countdown");
             var on = document.getElementById("on").firstElementChild; 
         
             var thisName = " ";
@@ -139,6 +139,23 @@ $(document).ready(function() {
     editBtn = document.getElementById("edit");
     
     
+    //function timer to set countdown
+    
+    var arrtime = [];
+    function timer(counter){
+        
+    var timeid = setInterval(function() {
+        counter--;
+        if(counter < 0) {
+            clearInterval(timeid);
+        } else {
+            countdown.innerHTML = counter.toString();
+        }
+    }, 1000);
+        arrtime.push(timeid);
+    }
+    
+    
     
     //check whether a btn was clicked
  
@@ -154,39 +171,62 @@ $(document).ready(function() {
         var nameMode = document.getElementById("name").innerText.toLowerCase();
             
         var stepBtns = Array.from(document.querySelectorAll(".step_btn"));
-          
+            
+            
+        if(clicked){
+                    
+            this.dataset.clicked = 0;
+            
+        } else {
+            
             switch(name){
                 case "start": {
-                    
+                   
                     console.log("rozpoczynam pranie");
                     
                     if(nameMode === "fast"){
                         wHeat(fastMode);
+                        timer(fastMode.time);
                     }
                     
                     else if(nameMode === "daily"){
                         wHeat(dailyMode);
+                        timer(dailyMode.time);
                     }
                     
                      else if(nameMode === "custom"){
                         wHeat(customMode);
+                        timer(customMode.time);
                     }
                     
                      else if(nameMode === "hand"){
                         wHeat(handMode);
+                        timer(handMode.time);
                     }
                     
                      else if(nameMode === "cotton"){
                         wHeat(cottonMode);
+                        timer(cottonMode.time);
                     }
                     
                     break;
                     
                 }
                     
-                case "stop":
+                case "stop": {
                     console.log("koncze pranie");
                     
+                    //stop the functions
+                    for(var i = 0; i < arr.length; i++){
+                        clearTimeout(arr[i]);
+                    }
+                    
+                    //stop the timer
+                    for(var i = 0; i < arrtime.length; i++){
+                        clearInterval(arrtime[i]);
+                    }
+               
+                    //stop lighting btns
                     stepBtns.forEach(function(elements){
                         elements.firstElementChild.classList.remove("change");
                     });
@@ -194,67 +234,96 @@ $(document).ready(function() {
                     stepBtns[6].firstElementChild.classList.add("change");
                     
                     break;
+                }
+                    
+                case "drying": {
+                    
+                    //stop the functions
+                    for(var i = 0; i < arr.length; i++){
+                        clearTimeout(arr[i]);
+                    }
+                    
+                    //stop the timer
+                    for(var i = 0; i < arrtime.length; i++){
+                        clearInterval(arrtime[i]);
+                    }
+                    
+                    //stop lighting btns
+                    stepBtns.forEach(function(elements){
+                        elements.firstElementChild.classList.remove("change");
+                    });
+                    
+                    stepBtns[5].firstElementChild.classList.add("change");
+                    
+                    break;
+                }
+                   
             }
-
-      });
-          
+            
+            this.dataset.clicked = 1;
+            
+        }
+      });     
     }
     
     
     
     //functions of different washing modes
+    var arr = [];
     
     function wHeat(mode) {
         mode.steps[6].classList.remove("change");
         mode.steps[0].classList.remove("change");
         mode.steps[1].classList.add("change");
         
-        setTimeout(function(){
+        arr.push(setTimeout(function(){
             mControl(mode);
-        }, mode.quickTime[1]);
+        }, mode.quickTime[1]));
     }
     
     function mControl(mode){
         mode.steps[1].classList.remove("change");
         mode.steps[2].classList.add("change"); 
-        setTimeout(function(){
+        
+        arr.push(setTimeout(function(){
             rins(mode);
-        }, mode.quickTime[2]);
+        }, mode.quickTime[2]));
     }
     
     function rins(mode){
         mode.steps[2].classList.remove("change");
         mode.steps[3].classList.add("change");
-        setTimeout(function(){
-            centrif(mode)
-        }, mode.quickTime[3]);      
+        
+        arr.push(setTimeout(function(){
+            centrif(mode);
+        }, mode.quickTime[3]));      
     }
     
     function centrif(mode){
         mode.steps[3].classList.remove("change");
         mode.steps[4].classList.add("change");
-        setTimeout(function(){
-            drying(mode)
-        }, mode.quickTime[4]);   
+        
+        arr.push(setTimeout(function(){
+            drying(mode);
+        }, mode.quickTime[4]));   
     }
     
     function drying(mode){
         mode.steps[4].classList.remove("change");
         mode.steps[5].classList.add("change");
-        setTimeout(function(){
-            open(mode)
-        }, mode.quickTime[5]);
+        
+        arr.push(setTimeout(function(){
+            open(mode);
+        }, mode.quickTime[5]));
     }
     
     function open(mode){
         mode.steps[5].classList.remove("change");
         mode.steps[6].classList.add("change");
-        
     }
         
-
     
-    
+  
     
 });
 
