@@ -229,7 +229,7 @@ body {
             background-color: $colorLightGrey;
             @include border-radius(25px);
             margin: 20px 50px;
-            padding: 12px 30px;
+            padding: 15px 30px;
             cursor: pointer;
             input{
                 width: 50px;
@@ -238,13 +238,14 @@ body {
             .choice{
                 margin: 0 10px;
             }
-            .ok{
-                padding: 5px;
-                margin: 0 0 5px 5px;
-            }
         }
     }
 }
 .hide{
     display: none;
+}
+
+.chosen{
+    background-color: orangered;
+    padding: 5px;
 }

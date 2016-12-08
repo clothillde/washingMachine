@@ -136,6 +136,24 @@ $(document).ready(function() {
     
     
     
+     //function timer to set countdown
+    
+    var arrtime = [];
+    function timer(counter){
+        
+    var timeid = setInterval(function() {
+        counter--;
+        if(counter < 0) {
+            clearInterval(timeid);
+        } else {
+            countdown.innerHTML = counter.toString();
+        }
+    }, 1000);
+        arrtime.push(timeid);
+    }
+    
+    
+    
     //animate the washing knob
     //and show name and duration of the mode on the screen
     
@@ -211,24 +229,7 @@ $(document).ready(function() {
     
     
     
-    //function timer to set countdown
-    
-    var arrtime = [];
-    function timer(counter){
-        
-    var timeid = setInterval(function() {
-        counter--;
-        if(counter < 0) {
-            clearInterval(timeid);
-        } else {
-            countdown.innerHTML = counter.toString();
-        }
-    }, 1000);
-        arrtime.push(timeid);
-    }
-    
-    
-    
+    //all the magic is made here 1/2
     //check whether a btn was clicked and action after
  
     var btns = document.querySelectorAll("button");
@@ -236,7 +237,6 @@ $(document).ready(function() {
     var dryAudio = new Audio('washing-machine-spin-cycle.mp3');
     
             
-    
     for(var i=0; i<btns.length; ++i) {
         
         btns[i].addEventListener("click", function(){
@@ -283,7 +283,7 @@ $(document).ready(function() {
                      else if(nameMode === "custom"){
                         wHeat(customMode);
                         timer(customMode.time);
-                        AnimateRotate(0, 100000, 0);
+                        AnimateRotate(0, 10000, 20000);
                     }
                     
                      else if(nameMode === "hand"){
@@ -384,15 +384,146 @@ $(document).ready(function() {
     
     
     
+    //magic from the other site 2/2
     
-    
-    
-    
+    //check whether a btn was clicked and action after
   
+    var clickCount = 1;
+    var customMode = new WashingMode("custom", 0, 0, 0, 0, 0, 0);
+    var saveBtn = document.getElementById("save");
+   
+    // if you choose mode, check which one and get time
+    document.querySelector("ul").addEventListener("click", function(event) {
+                 
+        if(event.target.className === "choice") {
+            
+            event.target.classList.add("chosen");
+            
+            var chosen_time = event.target.parentElement.firstElementChild;
+            var chosen_time_value = parseInt(chosen_time.value);
+            
+            var parentsteps = document.querySelector(".icon").children;
+            var currentChoice;
+            var currentTime;
+            var totalTime = 0;
+            
+            var tmpName = event.target.dataset.name;
+
+                switch(tmpName){
+                        
+                    case "wheating": {
+                        currentChoice = parentsteps[1].firstElementChild;
+                        currentTime = chosen_time_value;
+                        break;
+                    }
+                    case "mcontrol": {
+                        currentChoice = parentsteps[2].firstElementChild;
+                        currentTime = chosen_time_value;
+                        break;
+                    }
+                    case "rinsing": {
+                        currentChoice = parentsteps[3].firstElementChild;
+                        currentTime = chosen_time_value;
+                        break;
+                    }
+                    case "centrif": {
+                        currentChoice = parentsteps[4].firstElementChild;
+                        currentTime = chosen_time_value;
+                        break;
+                    }
+                    case "dry": {
+                        currentChoice = parentsteps[5].firstElementChild;
+                        currentTime = chosen_time_value;
+                        break;
+                    }
+                }
+            
+            customMode.steps[clickCount] = currentChoice;
+            customMode.quickTime[clickCount] = currentTime;
+              
+            for(var i = 1; i < 6; i++){
+                totalTime += customMode.quickTime[i];
+            }
+                
+        clickCount++;
+           
+        //prevent infinite choosing
+        if(clickCount < 6){
+            makeNewLine();
+        }    
+         
+         
+     }
+    
+    
+        //if save btn is clicked, then attach it to the knob
+        saveBtn.addEventListener("click", function(){
+            customMode.time = Math.round(totalTime/1000);
+            document.getElementById("name").innerText = customMode.name;
+            document.getElementById("countdown").innerText = customMode.time;
+            AnimateRotate(120, 180, 1000);
+        })
+         
 });
+    
+    
+    
+    //function made to add new line of the list with washing modes
+    function makeNewLine(){
+        
+        //find list
+        var addList = document.querySelector(".my_list");
+        
+        //make new elements
+        var newLi = document.createElement("li");
+        
+        var newInput = document.createElement("input");
+            
+        var newSpan1 = document.createElement("span");
+        var newSpan2 = document.createElement("span");
+        var newSpan3 = document.createElement("span");
+        var newSpan4 = document.createElement("span");
+        var newSpan5 = document.createElement("span");
+    
+        
+        //set their attributes
+        newInput.setAttribute("type", "text");
+        newInput.setAttribute("name", "time");
+        newInput.setAttribute("class", "chosen_time");
+        newInput.setAttribute("placeholder", "milisec");
+        
+        
+        newSpan1.setAttribute("class", "choice");
+        newSpan1.setAttribute("data-name", "wheating");
+        newSpan1.innerText = "WATER HEATING";
+        
+        newSpan2.setAttribute("class", "choice");
+        newSpan2.setAttribute("data-name", "mcontrol");
+        newSpan2.innerText = "MOTOR CONTROL";
+        
+        newSpan3.setAttribute("class", "choice");
+        newSpan3.setAttribute("data-name", "rinsing");
+        newSpan3.innerText = "RINSING";
+        
+        newSpan4.setAttribute("class", "choice");
+        newSpan4.setAttribute("data-name", "centrif");
+        newSpan4.innerText = "CENTRIFUGATION";
+        
+        newSpan5.setAttribute("class", "choice");
+        newSpan5.setAttribute("data-name", "dry");
+        newSpan5.innerText = "DRYING";
+        
+        //add them to the DOM structure
+        newLi.appendChild(newInput);
+        newLi.appendChild(newSpan1);
+        newLi.appendChild(newSpan2);
+        newLi.appendChild(newSpan3);
+        newLi.appendChild(newSpan4);
+        newLi.appendChild(newSpan5);
+        
+        addList.appendChild(newLi);
+    }
 
-
-
-
-
-
+    
+    
+});
