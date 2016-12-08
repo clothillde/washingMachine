@@ -15,7 +15,7 @@
 -->
 
     
-<div class="container">  
+<div class="container" id="site1">  
     <div class="left">
         <div class="nav"> 
             <button class="init_btn" id="start" data-clicked="0"> START </button>
@@ -32,7 +32,7 @@
             <p class="cotton"> COTTON </p>
         </div>
         <div class="screen">
-            <button class="edit_btn" id="edit" data-clicked="0"> SET YOUR CUSTOM MODE </button>
+            <button class="edit_btn" id="edit" data-clicked="0"><a href="#site2">  SET YOUR CUSTOM MODE </a></button>
             <div class="lcd"> 
                 <p> WASHING <br> MODE: <span id="name"> </span></p>
                 <p> TIME: <span id="countdown"></span></p>
@@ -55,7 +55,7 @@
 </div>
     
       
-<div class="container_second_site">
+<div class="container_second_site" id="site2">
     <span id="title"> CHOOSE YOUR OWN WASHING ORDER AND TIME </span>
     <div class="flex">
         
@@ -71,7 +71,7 @@
 
         </ul>
     </div>
-    <button class="save_btn" id="save"> SAVE </button>
+    <button class="save_btn" id="save"><a href="#site1"> SAVE </a></button>
 </div>
 
     
