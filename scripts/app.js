@@ -145,6 +145,9 @@ $(document).ready(function() {
         counter--;
         if(counter < 0) {
             clearInterval(timeid);
+            startBtn.classList.remove("disabled");
+            dryBtn.classList.remove("disabled");
+            editBtn.classList.remove("disabled");
         } else {
             countdown.innerHTML = counter.toString();
         }
@@ -258,6 +261,15 @@ $(document).ready(function() {
             switch(name){
                 case "start": {
                     
+                    startBtn.disabled = true;
+                    dryBtn.disabled = true;
+                    editBtn.disabled = true;
+                    
+                    startBtn.classList.add("disabled");
+                    dryBtn.classList.add("disabled");
+                    editBtn.classList.add("disabled");
+                 
+                    
                     //stop the other audio
                     dryAudio.pause();
                     dryAudio.currentTime = 0;
@@ -271,7 +283,7 @@ $(document).ready(function() {
                     if(nameMode === "fast"){
                         wHeat(fastMode);
                         timer(fastMode.time);
-                        AnimateRotate(0, 20000, 10000);
+                        AnimateRotate(0, 10000, 10000);
                     }
                     
                     else if(nameMode === "daily"){
@@ -283,7 +295,7 @@ $(document).ready(function() {
                      else if(nameMode === "custom"){
                         wHeat(customMode);
                         timer(customMode.time);
-                        AnimateRotate(0, 10000, 20000);
+                        AnimateRotate(0, 10000, customMode.time*1000);
                     }
                     
                      else if(nameMode === "hand"){
@@ -303,6 +315,14 @@ $(document).ready(function() {
                 }
                     
                 case "stop": {
+                    
+                    startBtn.disabled = false;
+                    dryBtn.disabled = false;
+                    editBtn.disabled = false;
+                    
+                    startBtn.classList.remove("disabled");
+                    dryBtn.classList.remove("disabled");
+                    editBtn.classList.remove("disabled");
                     
                     //stop the sound
                     audio.pause();
@@ -336,6 +356,12 @@ $(document).ready(function() {
                     
                 case "drying": {
                     
+                    dryBtn.disabled = true;
+                    editBtn.disabled = true;
+                    
+                    dryBtn.classList.add("disabled");
+                    editBtn.classList.add("disabled");
+                    
                     //stop the sound
                     audio.pause();
                     audio.currentTime = 0;
@@ -368,9 +394,9 @@ $(document).ready(function() {
                     
                     break;
                 }
-                   
+                
             }
-            
+           
             this.dataset.clicked = 1;
         }
       });  
@@ -382,7 +408,7 @@ $(document).ready(function() {
         dryAudio.currentTime = 0;
     }
     
-    
+ 
     
     //magic from the other site 2/2
     
