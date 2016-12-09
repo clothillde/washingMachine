@@ -1,20 +1,20 @@
 $(document).ready(function() {
     
     
-//    //show welcome site
-//    
-//    var btnClose = document.createElement("button");
-//    var imgSnoopy = document.querySelector(".container_open");
-//    btnClose.classList.add("close");
-//    btnClose.innerText = "Close";
-//    imgSnoopy.appendChild(btnClose);
-//
-//
-//    //wreck buttton to hide welcome site
-//    btnClose.addEventListener("click", function(event){
-//      this.parentElement.remove(imgSnoopy);
-//    });
-//    
+    //show welcome site
+    
+    var btnClose = document.createElement("button");
+    var imgSnoopy = document.querySelector(".container_open");
+    btnClose.classList.add("close");
+    btnClose.innerText = "Close";
+    imgSnoopy.appendChild(btnClose);
+
+
+    //wreck buttton to hide welcome site
+    btnClose.addEventListener("click", function(event){
+      this.parentElement.remove(imgSnoopy);
+    });
+    
     
     
     
@@ -136,7 +136,7 @@ $(document).ready(function() {
     
     
     
-     //function timer to set countdown
+    //function timer to set countdown
     
     var arrtime = [];
     function timer(counter){
@@ -148,6 +148,10 @@ $(document).ready(function() {
             startBtn.classList.remove("disabled");
             dryBtn.classList.remove("disabled");
             editBtn.classList.remove("disabled");
+            audio.pause();
+            audio.currentTime = 0;
+            dryAudio.pause();
+            dryAudio.currentTime = 0;
         } else {
             countdown.innerHTML = counter.toString();
         }

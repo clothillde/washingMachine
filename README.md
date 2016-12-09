@@ -7,6 +7,4 @@ How to use it:
 After one use you need to refresh the page.
 2. Click button to set your own custom mode, then on the next page choose your own order and set time (in miliseconds) to the stages of the washing. If you click save, then you will see effects of your choice.
 
-enjoy!
 
-https://clothillde.github.io/washingMachine/
