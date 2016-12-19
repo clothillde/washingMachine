@@ -1,23 +1,6 @@
 $(document).ready(function() {
     
     
-    //show welcome site
-    
-    var btnClose = document.createElement("button");
-    var imgSnoopy = document.querySelector(".container_open");
-    btnClose.classList.add("close");
-    btnClose.innerText = "Close";
-    imgSnoopy.appendChild(btnClose);
-
-
-    //wreck buttton to hide welcome site
-    btnClose.addEventListener("click", function(event){
-      this.parentElement.remove(imgSnoopy);
-    });
-    
-    
-    
-    
     //function to animate the washing knob
     
     function AnimateRotate(from, to, i){

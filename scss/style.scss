@@ -12,30 +12,6 @@ body {
 }
 
 
-//welcome sitepage with a gif to know what about is this page
-.container_open{
-    width: $percentWidth;
-    height: $percentHeight;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background:rgba(255,255,255,0.7);
-    background-image: url("../images/snoopy.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-
-.close {
-  display: block;
-  height: 50px;
-  width: 100px;
-  font-size: 30px;
-}
-
-
-
 //first site style
 //main container
 .container {
