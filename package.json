@@ -1,0 +1,29 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "My goal was to mostly improve my JavaScript skills that is why I still improve many things in this project.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "jshint": "^2.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "gulp watch",
+	"build": "gulp",
+	"postinstall": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clothillde/washingMachine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clothillde/washingMachine/issues"
+  },
+  "homepage": "https://github.com/clothillde/washingMachine#readme"
+}
